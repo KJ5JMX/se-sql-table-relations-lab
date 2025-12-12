@@ -85,7 +85,7 @@ df_customers = pd.read_sql("""
 # STEP 10
 # Replace None with your code
 df_under_20 = pd.read_sql("""
-    SELECT  employees.employeeNumber, employees.firstName, employees.lastName, offices.city,offices.officeCode FROM employees
+    SELECT DISTINCT employees.employeeNumber, employees.firstName, employees.lastName, offices.city,offices.officeCode FROM employees
     JOIN customers ON employees.employeeNumber = customers.salesRepEmployeeNumber
     JOIN orders  ON customers.customerNumber = orders.customerNumber
     JOIN orderdetails  ON orders.orderNumber = orderdetails.orderNumber
